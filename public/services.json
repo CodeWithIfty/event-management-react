@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Eternal Love: Your Dream Wedding",
+    "description": "Experience the magic of your special day with our expert wedding planning services. From romantic ceremonies to unforgettable receptions, we create memories that last a lifetime.",
+    "img": "https://i.ibb.co/y4jvkVb/5985-rw-plan-a-wedding-step-by-step-porterhouse-los-angeles.webp",
+    "price": 150.0
+  },
+  {
+    "id": 2,
+    "title": "Birthday Bliss: Celebrate in Style",
+    "description": "Make your birthday unforgettable with our birthday party planning. From themed extravaganzas to elegant gatherings, we ensure your day is filled with joy and laughter",
+    "img": "https://i.ibb.co/41GCpp4/750997891.jpg",
+    "price": 20.0
+  },
+  {
+    "id": 3,
+    "title": "Milestone Moments: Celebrating Love",
+    "description": "Commemorate your love story with an anniversary celebration that captures the essence of your journey. Let us create an event that honors your years together.",
+    "img": "https://i.ibb.co/bKRMpkf/864a401180db0aa01fafe1f822affc94.jpg",
+    "price": 120.0
+  },
+  {
+    "id": 4,
+    "title": "Love's Beginning: Engagement Celebration",
+    "description": "Mark the start of your lifelong journey together with a dazzling engagement party. Our experts craft an event that sparkles with love and joy",
+    "img": "https://i.ibb.co/6ZXmXQV/engagement-party.webp",
+    "price": 15.0
+  },
+  {
+    "id": 5,
+    "title": "Cheers to New Beginnings: Retirement Celebration",
+    "description": "Bid farewell to a rewarding career and welcome a new chapter in life with a retirement party that honors your achievements. Let's celebrate your journey.",
+    "img": "https://i.ibb.co/drVtvQS/retierment-party.png",
+    "price": 40.0
+  },
+  {
+    "id": 6,
+    "title": "Bundle of Joy: Baby Shower Delight",
+    "description": "Welcome the newest member of your family with a heartwarming baby shower. We create a memorable event filled with love and anticipation",
+    "img": "https://i.ibb.co/Dp5fYfF/babyshower.jpg",
+    "price": 75.0
+  }
+]

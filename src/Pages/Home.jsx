@@ -1,4 +1,5 @@
 
+import ContactFrom from "../components/ContactForm"
 import { Footer } from "../components/Footer"
 import { ComplexNavbar } from "../components/Navbar"
 import Services from "../components/Services"
@@ -13,6 +14,9 @@ const Home = () => {
       <CarouselWithContent/>
       <Services/>
       <Testimonials/>
+      <div className="">
+      <ContactFrom/>
+      </div>
       <Footer/>
     </div>
   )

@@ -14,13 +14,14 @@ import {
 import {
   CubeTransparentIcon,
   UserCircleIcon,
-  CodeBracketSquareIcon,
   ChevronDownIcon,
   Cog6ToothIcon,
   InboxArrowDownIcon,
   LifebuoyIcon,
   PowerIcon,
   Bars2Icon,
+  HomeIcon,
+  ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
 
 // profile menu component
@@ -54,19 +55,18 @@ function ProfileMenu() {
 
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
-      
       <MenuHandler>
         <Button
           variant="text"
           color="blue-gray"
-          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
+          className="flex items-center gap-1 scale-125 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
         >
           <Avatar
             variant="circular"
             size="sm"
             alt="tania andrew"
             className="border border-gray-900 p-0.5"
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+            src="https://i.ibb.co/rHzPb0S/icon-256x256.png"
           />
           <ChevronDownIcon
             strokeWidth={2.5}
@@ -113,22 +113,26 @@ function ProfileMenu() {
 // nav list component
 const navListItems = [
   {
+    label: "Home",
+    icon: HomeIcon,
+  },
+  {
     label: "Account",
     icon: UserCircleIcon,
   },
   {
-    label: "Blocks",
-    icon: CubeTransparentIcon,
+    label: "About Us",
+    icon: ExclamationCircleIcon,
   },
   {
-    label: "Docs",
-    icon: CodeBracketSquareIcon,
+    label: "Contact Us",
+    icon: CubeTransparentIcon,
   },
 ];
 
 function NavList() {
   return (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
+    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center scale-110 ">
       {navListItems.map(({ label, icon }) => (
         <Typography
           key={label}
@@ -149,7 +153,6 @@ function NavList() {
 }
 
 export function ComplexNavbar() {
-
   const [isNavOpen, setIsNavOpen] = React.useState(false);
 
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
@@ -162,7 +165,7 @@ export function ComplexNavbar() {
   }, []);
 
   return (
-    <Navbar className="mx-auto container rounded-none shadow-none   mt-5 p-2 lg:pl-6">
+    <Navbar className="mx-auto p-5 rounded-none shadow-none   lg:pl-6 ">
       <div className="relative mx-auto flex items-center text-blue-gray-900">
         <Typography
           as="a"
