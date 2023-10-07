@@ -1,10 +1,17 @@
-
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import the AOS CSS for styling
+import { useEffect } from "react";
 const ContactFrom = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duration of animation (in milliseconds)
+    });
+  }, []);
   return (
     <>
-      <section className="bg-white py-16  mx-auto container relative z-10 ">
+      <section data-aos="fade-zoom-in" className="bg-white py-16  mx-auto container relative z-10 ">
         <div className="container">
-          <div className="flex flex-wrap -mx-4 lg:justify-between">
+          <div className="flex flex-wrap  lg:justify-between">
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
               <div className="mb-12 max-w-[570px] lg:mb-0">
                 <span className="block mb-4 text-base font-semibold text-primary">
@@ -83,7 +90,7 @@ const ContactFrom = () => {
               </div>
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
-              <div className="relative p-8 bg-white rounded-lg shadow-lg sm:p-12">
+              <div className="relative md:p-8 bg-white rounded-lg  p-12  shadow-xl border-2 ">
                 <form>
                   <ContactInputBox
                     type="text"
@@ -115,7 +122,7 @@ const ContactFrom = () => {
                     </button>
                   </div>
                 </form>
-                <div>
+                <div className="md:block hidden ">
                   <span className="absolute -top-10 -right-9 z-[-1]">
                     <svg
                       width={100}

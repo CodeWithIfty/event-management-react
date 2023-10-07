@@ -23,6 +23,7 @@ import {
   HomeIcon,
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 // profile menu component
 const profileMenuItems = [
@@ -115,29 +116,33 @@ const navListItems = [
   {
     label: "Home",
     icon: HomeIcon,
+    path: "/"
   },
   {
     label: "Account",
     icon: UserCircleIcon,
+    path: "/"
   },
   {
     label: "About Us",
     icon: ExclamationCircleIcon,
+    path: "/"
   },
   {
     label: "Contact Us",
     icon: CubeTransparentIcon,
+    path: "/"
   },
 ];
 
 function NavList() {
   return (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center scale-110 ">
-      {navListItems.map(({ label, icon }) => (
-        <Typography
+      {navListItems.map(({ label, icon, path }) => (
+        <Link
           key={label}
           as="a"
-          href="#"
+          to={path}
           variant="small"
           color="blue-gray"
           className="font-normal"
@@ -146,7 +151,7 @@ function NavList() {
             {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
             {label}
           </MenuItem>
-        </Typography>
+        </Link>
       ))}
     </ul>
   );

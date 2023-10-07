@@ -1,15 +1,24 @@
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import the AOS CSS for styling
+import { useEffect } from "react";
+
 const Testimonials = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duration of animation (in milliseconds)
+    });
+  }, []);
   return (
-    <section id="testimonies" className="py-20 bg-slate-900">
-      <div className="max-w-6xl mx-8 md:mx-10 lg:mx-20 xl:mx-auto">
+    <section   id="testimonies" className="py-20 bg-slate-900">
+      <div className="max-w-6xl mx-8 md:mx-10 lg:mx-20 xl:mx-auto" >
         {/* Title */}
-        <div className="transition duration-500 ease-in-out transform scale-100 translate-x-0 translate-y-0 opacity-100">
+        <div data-aos="fade-zoom-in" className="transition duration-500 ease-in-out transform scale-100 translate-x-0 translate-y-0 opacity-100">
           <div className="mb-12 space-y-5 md:mb-16 md:text-center">
             <div className="inline-block px-3 py-1 text-sm font-semibold text-white rounded-lg md:text-center text-cn bg-[#202c47]  hover:cursor-pointer hover:bg-opacity-40">
               Words from Others
             </div>
             <h1 className="mb-5 text-3xl font-semibold text-black md:text-center md:text-5xl">
-              Its not just us.
+              Its not <span className="text-[#3056D3] "> just us.</span>
             </h1>
             <p className="text-xl text-gray-800 md:text-center md:text-2xl">
               Heres what others have to say about us.
@@ -18,7 +27,7 @@ const Testimonials = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          <ul className="space-y-8 ">
+          <ul className="space-y-8 " data-aos="flip-left">
             <li className="text-sm leading-6 ">
               <div className="relative group  ">
                 <div className="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200"></div>
@@ -82,7 +91,7 @@ const Testimonials = () => {
             </li>
           </ul>
 
-          <ul className="hidden space-y-8 sm:block">
+          <ul className="hidden space-y-8 sm:block" data-aos="flip-left">
             <li className="text-sm leading-6">
               <div className="relative group">
                 <div className="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200"></div>
@@ -143,7 +152,7 @@ const Testimonials = () => {
             </li>
           </ul>
 
-          <ul className="hidden space-y-8 lg:block">
+          <ul className="hidden space-y-8 lg:block" data-aos="flip-left">
             <li className="text-sm leading-6">
               <div className="relative group">
                 <div className="absolute transition rounded-lg opacity-25 -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 blur duration-400 group-hover:opacity-100 group-hover:duration-200"></div>

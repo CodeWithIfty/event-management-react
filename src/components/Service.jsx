@@ -5,18 +5,23 @@ import {
   CardFooter,
   Typography,
   Button,
-  Tooltip,
   IconButton,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
+import { useEffect } from "react";
 
-export function Service({ title, img, description, price }) {
+export function Service({ id, title, img, description, price }) {
+  useEffect(() => {
+    AOS.init({
+      duration: 500, // Duration of animation (in milliseconds)
+    });
+  }, []);
   return (
-    <Card className="w-96 shadow-lg flex flex-col justify-between">
+    <Card data-aos="flip-right" className="lg:w-96 shadow-lg flex flex-col justify-between">
       <CardHeader floated={false} color="blue-gray">
-        <img
-          src={img}
-          alt="ui/ux review check"
-        />
+        <img src={img} alt="ui/ux review check" />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
         <IconButton
           size="sm"
@@ -46,9 +51,11 @@ export function Service({ title, img, description, price }) {
         <p className="text-gray-700">{description}</p>
       </CardBody>
       <CardFooter className="pt-3">
-        <Button size="lg" fullWidth={true}>
-          Reserve
-        </Button>
+        <Link to={`/service-details/${id}`}>
+          <Button size="lg" fullWidth={true} className="bg-[#3056D3]">
+            Reserve
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );
