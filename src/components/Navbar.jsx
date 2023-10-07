@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   Navbar,
   Typography,
@@ -24,6 +24,7 @@ import {
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { createElement, useEffect, useState } from "react";
 
 // profile menu component
 const profileMenuItems = [
@@ -50,7 +51,7 @@ const profileMenuItems = [
 ];
 
 function ProfileMenu() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -91,7 +92,7 @@ function ProfileMenu() {
                   : ""
               }`}
             >
-              {React.createElement(icon, {
+              {createElement(icon, {
                 className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
                 strokeWidth: 2,
               })}
@@ -137,7 +138,7 @@ const navListItems = [
 
 function NavList() {
   return (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center scale-110 ">
+    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row text-gray-700 lg:items-center lg:scale-110 ">
       {navListItems.map(({ label, icon, path }) => (
         <Link
           key={label}
@@ -148,7 +149,7 @@ function NavList() {
           className="font-normal"
         >
           <MenuItem className="flex items-center gap-2 lg:rounded-full">
-            {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
+            {createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
             {label}
           </MenuItem>
         </Link>
@@ -158,11 +159,11 @@ function NavList() {
 }
 
 export function ComplexNavbar() {
-  const [isNavOpen, setIsNavOpen] = React.useState(false);
+  const [isNavOpen, setIsNavOpen] =useState(false);
 
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setIsNavOpen(false)
@@ -171,7 +172,7 @@ export function ComplexNavbar() {
 
   return (
     <Navbar className="mx-auto p-5 rounded-none shadow-none   lg:pl-6 ">
-      <div className="relative mx-auto flex items-center text-blue-gray-900">
+      <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
           href="#"
@@ -191,7 +192,9 @@ export function ComplexNavbar() {
         >
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
-        <ProfileMenu />
+        {/* <ProfileMenu /> */}
+        <Link to={"/login"}><button className="btn btn-primary ">Login</button></Link>
+
       </div>
       <Collapse open={isNavOpen} className="overflow-scroll">
         <NavList />

@@ -10,9 +10,14 @@ const ServiceDetails = () => {
   const { title, price, description,img } = service;
 
   console.log(services);
+  const divStyle = {
+    backgroundImage: `url(${img})`,
+  };
   return (
     <div className="container mx-auto">
-      <div className={` bg-[url(${img})] h-96  my-10 shadow-lg rounded-lg `}>
+      <div
+      style={divStyle}
+       className=' h-96  my-10 shadow-lg rounded-lg '>
         <div className="w-full bg-black h-full bg-opacity-50  hover:bg-opacity-30 duration-500 flex items-center justify-center rounded-lg flex-col">
           <h1 className="text-4xl w-1/2 mb-3 text-center font-bold text-white">
             {title}
