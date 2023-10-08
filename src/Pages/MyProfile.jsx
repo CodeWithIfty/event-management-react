@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { authContext } from "../context/AuthProvider";
+import { Link } from "react-router-dom";
+import { GoVerified, GoUnverified } from 'react-icons/go';
 
 const MyProfile = () => {
   const { user, loading } = useContext(authContext);
@@ -33,20 +35,21 @@ const MyProfile = () => {
             <div className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
               <img
                 src={`${
-                    user.photoURL
-                      ? user.photoURL
-                      : "https://i.ibb.co/rHzPb0S/icon-256x256.png"
-                  }`}
+                  user.photoURL
+                    ? user.photoURL
+                    : "https://i.ibb.co/rHzPb0S/icon-256x256.png"
+                }`}
                 alt=""
-                className="w-48 h-48 rounded-full"
+                className="w-48 h-48  rounded-full"
               />
             </div>{" "}
           </div>{" "}
           <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
-            <button className="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
-              {" "}
-              Edit Profile
-            </button>{" "}
+            <Link to={'/update-profile'}>
+              <button className="text-white py-4 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                Edit Profile
+              </button>
+            </Link>
             <button className="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
               {" "}
               Message
@@ -55,17 +58,16 @@ const MyProfile = () => {
         </div>{" "}
         <div className="mt-20 text-center border-b pb-12">
           {" "}
-
           {loading ? (
             <span className="loading loading-ring loading-md scale-150 mr-5"></span>
           ) : (
-            <h1 className="text-4xl font-medium text-gray-700">
-
-            {user?.displayName}{" "}
-            <span className="font-light text-gray-500">27</span>
-          </h1>
+            <h1 className="text-4xl font-medium text-gray-700 flex justify-center items-start">
+              {user?.displayName}{" "}
+              <span className="font-light text-gray-500">{
+                user.emailVerified ? <GoVerified className="text-blue-600 text-2xl ml-2"/> : <GoUnverified className="text-gray-600 text-2xl ml-2"/>
+              }</span>
+            </h1>
           )}
-          
           {loading ? (
             <span className="loading loading-ring loading-md scale-150 mr-5"></span>
           ) : (

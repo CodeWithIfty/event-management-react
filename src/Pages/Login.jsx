@@ -31,10 +31,9 @@ const Login = () => {
 
   const handleSignInWithGoogle = () => {
     SignInWithGoogle()
-      .then((res) => {
+      .then(() => {
         navigate(location?.state ? location.state : "/");
         toast("Successfully Logged in!");
-        console.log(res);
       })
       .catch((err) => console.log(err));
   };

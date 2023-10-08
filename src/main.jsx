@@ -15,6 +15,7 @@ import About from "./Pages/About";
 import ContactFrom from "./components/ContactForm";
 import ServicesPage from "./Pages/ServicesPage";
 import MyProfile from "./Pages/MyProfile";
+import UpdateProfile from "./Pages/UpdateProfile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/my-profile",
         element: <PrivateRoute><MyProfile/></PrivateRoute>
+      },
+      {
+        path: "/update-profile",
+        element:  <PrivateRoute><UpdateProfile/></PrivateRoute>
       }
     ],
   },

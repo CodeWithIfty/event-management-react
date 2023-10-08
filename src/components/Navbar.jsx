@@ -41,6 +41,9 @@ function ProfileMenu() {
   const profileNavigate = () => {
     return navigate("/my-profile");
   };
+  const editProfileNavigate = () => {
+    return navigate("/update-profile");
+  };
 
   const profileMenuItems = [
     {
@@ -51,6 +54,7 @@ function ProfileMenu() {
     {
       label: "Edit Profile",
       icon: Cog6ToothIcon,
+      onClick: editProfileNavigate,
     },
     {
       label: "Inbox",
