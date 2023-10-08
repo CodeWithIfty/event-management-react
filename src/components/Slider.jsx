@@ -1,7 +1,15 @@
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
  
 export function CarouselWithContent() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Duration of animation (in milliseconds)
+    });
+  }, []);
 
   const [services, setServices] = useState([]);
   useEffect(() => {
@@ -9,7 +17,6 @@ export function CarouselWithContent() {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
-  console.log(services);
   return (
     <Carousel autoplay={true}  className="h-[92vh] w-full">
 
@@ -26,6 +33,7 @@ export function CarouselWithContent() {
               variant="h1"
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+              data-aos="fade-down"
             >
               {service.title}
             </Typography>
@@ -33,11 +41,12 @@ export function CarouselWithContent() {
               variant="lead"
               color="white"
               className="mb-12 opacity-80"
+              data-aos="fade-down"
             >
               {service.description}
             </Typography>
-            <div className="flex gap-2 items-center">
-              <Button size="lg" color="white">
+            <div className="flex gap-2 items-center" data-aos="fade-down">
+              <Button size="lg" color="white" >
                 Explore
               </Button>
               <p className="text-xl text-white font-bold ml-4">

@@ -15,9 +15,9 @@ const Services = () => {
       duration: 1000, // Duration of animation (in milliseconds)
     });
   }, []);
-  console.log(services);
+ 
   return (
-    <div data-aos="fade-up" className="container  mx-auto my-8">
+    <div data-aos="fade-up" className="container  mx-auto my-8" id="services">
       <div className="">
         <h1 className=" text-4xl mt-20 mb-4 font-extrabold text-center">
           It&#39;s simple. You have an event to plan and <br /> we have{" "}
