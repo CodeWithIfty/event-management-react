@@ -6,10 +6,9 @@ const ServiceDetails = () => {
   const services = useLoaderData();
 
   const service = services.find((service) => service.id === idInt);
-  console.log(service);
   const { title, price, description,img } = service;
 
-  console.log(services);
+
   const divStyle = {
     backgroundImage: `url(${img})`,
   };

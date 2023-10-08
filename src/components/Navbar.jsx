@@ -11,7 +11,6 @@ import {
   Collapse,
 } from "@material-tailwind/react";
 import {
-  CubeTransparentIcon,
   UserCircleIcon,
   ChevronDownIcon,
   Cog6ToothIcon,
@@ -22,7 +21,7 @@ import {
   HomeIcon,
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createElement, useContext, useEffect, useState } from "react";
 import { authContext } from "../context/AuthProvider";
 // profile menu component
@@ -30,7 +29,7 @@ import { authContext } from "../context/AuthProvider";
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { SignOutUser, user } = useContext(authContext);
-  console.log(user.photoURL);
+  const navigate = useNavigate();
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -39,11 +38,15 @@ function ProfileMenu() {
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
+  const profileNavigate = () => {
+    return navigate("/my-profile");
+  };
 
   const profileMenuItems = [
     {
       label: "My Profile",
       icon: UserCircleIcon,
+      onClick: profileNavigate,
     },
     {
       label: "Edit Profile",
@@ -64,6 +67,7 @@ function ProfileMenu() {
     },
   ];
 
+  
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
@@ -113,7 +117,6 @@ function ProfileMenu() {
                 strokeWidth: 2,
               })}
               <Typography
-                as="span"
                 variant="small"
                 className="font-normal"
                 color={isLastItem ? "red" : "inherit"}
@@ -134,6 +137,11 @@ const navListItems = [
     label: "Home",
     icon: HomeIcon,
     path: "/",
+  },
+  {
+    label: "Account",
+    icon: UserCircleIcon,
+    path: "/my-profile",
   },
   {
     label: "Services",
@@ -168,7 +176,6 @@ function NavList() {
           to={path}
           variant="small"
           color="blue-gray"
-          smooth={true}
           duration={500}
           className={`font-normal ${
             path === activePath ? "text-primary" : "text-gray-700"

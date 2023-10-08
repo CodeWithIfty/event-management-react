@@ -1,16 +1,17 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../context/AuthProvider";
-import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 const Register = () => {
-  const { createUser, SignInWithGoogle } = useContext(authContext);
+  const { createUser, SignInWithGoogle, updateUserProfile } =
+    useContext(authContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -31,12 +32,17 @@ const Register = () => {
     console.log(name, email, password);
     createUser(email, password)
       .then((res) => {
-        navigate("/")
-        console.log(res)})
+        updateUserProfile(name)
+        navigate("/");
+        console.log(res);
+      })
       .catch((error) => {
-        if(error.message.match(/email-already-in-use/g))
-        setEmailError("This email already in use")
-        console.log(error.message)});
+        if (error.message.match(/email-already-in-use/g))
+          setEmailError("This email already in use");
+        console.log(error.message);
+      });
+
+
   };
   const handleSignInWithGoogle = () => {
     SignInWithGoogle()
@@ -117,16 +123,18 @@ const Register = () => {
               <button className="btn btn-primary">Register</button>
             </div>
           </form>
-          
-            <div className="flex justify-center mb-2 ">
-              <button className="btn " onClick={handleSignInWithGoogle}><FcGoogle className="text-2xl"/> Register With Google</button>
-            </div>
-            <p className="text-center pb-5">
-              Do not have any Account! Please{" "}
-              <Link to={"/login"} className="text-primary underline font-bold">
-                Login
-              </Link>
-            </p>
+
+          <div className="flex justify-center mb-2 ">
+            <button className="btn " onClick={handleSignInWithGoogle}>
+              <FcGoogle className="text-2xl" /> Register With Google
+            </button>
+          </div>
+          <p className="text-center pb-5">
+            Do not have any Account! Please{" "}
+            <Link to={"/login"} className="text-primary underline font-bold">
+              Login
+            </Link>
+          </p>
         </div>
       </div>
     </div>

@@ -14,6 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 import About from "./Pages/About";
 import ContactFrom from "./components/ContactForm";
 import ServicesPage from "./Pages/ServicesPage";
+import MyProfile from "./Pages/MyProfile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <ServicesPage/>
+      },
+      {
+        path: "/my-profile",
+        element: <PrivateRoute><MyProfile/></PrivateRoute>
       }
     ],
   },
