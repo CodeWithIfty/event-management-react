@@ -55,7 +55,7 @@ export function CarouselWithContent() {
               data-aos="fade-up"
                 src={conf}
                 alt=""
-                className="absolute  z-10 image-mousemove-effect "
+                className="absolute  z-10 image-mousemove-effect hidden lg:block "
                 onMouseMove={handleMousemove}
                 onMouseLeave={handleMouseleave}
               />
