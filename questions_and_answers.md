@@ -20,7 +20,7 @@ console.log(greetign);
 
 #### Answer: ?
 
-<i>Write your explanation here</i>
+<i>The code will give an error because there's a typo in the variable name. Instead of greeting, it says greetign, which makes it undefined.</i>
 
 </p>
 </details>
@@ -45,7 +45,7 @@ sum(1, "2");
 
 #### Answer: ?
 
-<i>Write your explanation here</i>
+<i>The code will concatenate the numbers as strings, so it prints "12" because JavaScript converts the number 1 to a string and then adds it to "2".</i>
 
 </p>
 </details>
@@ -71,7 +71,7 @@ console.log(food);
 
 #### Answer: ?
 
-<i>Write your explanation here</i>
+<i>The code modifies the info.favoriteFood variable, but it doesn't affect the food array. So, it prints ['🍕', '🍫', '🥑', '🍔'].</i>
 
 </p>
 </details>
@@ -96,7 +96,7 @@ console.log(sayHi());
 
 #### Answer: ?
 
-<i>Write your explanation here</i>
+<i>The code will print Hi there, undefined because the name parameter is not provided when calling the sayHi function.</i>
 
 </p>
 </details>
@@ -124,7 +124,7 @@ console.log(count);
 
 #### Answer: ?
 
-<i>Write your explanation here</i>
+<i>The code prints 3 because it counts the number of truthy values in the nums array. In JavaScript, all numbers except 0 are considered truthy, so it counts 1, 2, and 3, resulting in 3.</i>
 
 </p>
 </details>
