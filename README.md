@@ -2,13 +2,14 @@
 
 Welcome to my website! This README.md file provides an overview of the features and functionalities implemented in this web application.
 
-# Demo : https://event-management-6cbe8.web.app
+ Demo : https://event-management-6cbe8.web.app
+
 ## Features and Functionalities
 
 1. **User Authentication:**
 
    - Users can register and log in to the website securely, providing a personalized experience.
-   - Unauthorized users attempting to access the services details page are redirected to the login page.
+   - Unauthorized users can't have access the services details page are redirected to the login page.
 
 2. **Login with Google:**
 
@@ -17,7 +18,7 @@ Welcome to my website! This README.md file provides an overview of the features 
 3. **Private User Routes:**
 
    - The website includes private routes such as the profile page and update profile page.
-   - Users can view their profile information, including profile image, name, and verification status.
+   - Users can view their profile information, including profile image, name, email, and verification status.
    - Through the update profile page, users can customize their profile picture and change their name.
 
 4. **Aesthetic Design and Animation:**
