@@ -38,7 +38,7 @@ const MyProfile = () => {
                       : "https://i.ibb.co/rHzPb0S/icon-256x256.png"
                   }`}
                 alt=""
-                className="w-48 h-48"
+                className="w-48 h-48 rounded-full"
               />
             </div>{" "}
           </div>{" "}
