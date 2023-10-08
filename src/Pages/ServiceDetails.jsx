@@ -6,17 +6,14 @@ const ServiceDetails = () => {
   const services = useLoaderData();
 
   const service = services.find((service) => service.id === idInt);
-  const { title, price, description,img } = service;
-
+  const { title, price, description, img } = service;
 
   const divStyle = {
     backgroundImage: `url(${img})`,
   };
   return (
     <div className="container mx-auto">
-      <div
-      style={divStyle}
-       className=' h-96  my-10 shadow-lg rounded-lg '>
+      <div style={divStyle} className=" h-96  my-10 shadow-lg rounded-lg ">
         <div className="w-full bg-black h-full bg-opacity-50  hover:bg-opacity-30 duration-500 flex items-center justify-center rounded-lg flex-col">
           <h1 className="text-4xl w-1/2 mb-3 text-center font-bold text-white">
             {title}
@@ -30,31 +27,25 @@ const ServiceDetails = () => {
           <h1 className="text-2xl font-bold">${price}</h1>
         </div>
         <p className="mb-6 text-justify">
-          {description}
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet
-          saepe placeat sunt eligendi est recusandae quas dolore dolor,
-          accusamus, maxime ab, magnam ipsam earum reiciendis. Quisquam tenetur
-          aspernatur itaque, culpa eligendi ipsam sapiente quidem cum fuga
-          voluptatem! Fugit debitis iste sit voluptatibus quis tempore adipisci
-          voluptas, eum consectetur nemo eos dolores quibusdam repudiandae
-          sapiente magni vel sint, necessitatibus, dolorem ratione sed. Odio
-          vitae dolores pariatur vel repellat animi minus ducimus perspiciatis
-          debitis nemo veniam rerum aspernatur quasi est porro, alias nihil,
-          illum labore officiis nam? Corporis ratione repudiandae quis eveniet
-          aliquid. Optio enim eos aliquid dolorem sequi, rerum provident. Fugit!
+          {description}A wedding event is a momentous and deeply meaningful
+          celebration of love, commitment, and the coming together of two
+          individuals in matrimony. It is a joyous occasion where families and
+          friends gather to witness and celebrate the union of a couple in love.
+          Weddings come in various styles and sizes, ranging from intimate
+          ceremonies in backyard gardens to lavish affairs in grand ballrooms or
+          picturesque destination settings. Each wedding is a reflection of the
+          couple's unique love story and personal preferences, making it a truly
+          one-of-a-kind event.
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet
-          saepe placeat sunt eligendi est recusandae quas dolore dolor,
-          accusamus, maxime ab, magnam ipsam earum reiciendis. Quisquam tenetur
-          aspernatur itaque, culpa eligendi ipsam sapiente quidem cum fuga
-          voluptatem! Fugit debitis iste sit voluptatibus quis tempore adipisci
-          voluptas, eum consectetur nemo eos dolores quibusdam repudiandae
-          sapiente magni vel sint, necessitatibus, dolorem ratione sed. Odio
-          vitae dolores pariatur vel repellat animi minus ducimus perspiciatis
-          debitis nemo veniam rerum aspernatur quasi est porro, alias nihil,
-          illum labore officiis nam? Corporis ratione repudiandae quis eveniet
-          aliquid. Optio enim eos aliquid dolorem sequi, rerum provident. Fugit!
+          In addition to the emotional and cultural significance, weddings
+          involve meticulous planning and coordination. Couples, often with the
+          assistance of wedding planners or event management agencies,
+          meticulously plan every detail, from selecting the perfect wedding
+          dress and designing the decor to choosing a menu that delights the
+          palate. The logistics of guest accommodations, transportation, and
+          seating arrangements are equally important to ensure that the day runs
+          smoothly.
         </p>
       </div>
     </div>
