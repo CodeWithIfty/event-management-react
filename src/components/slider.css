@@ -1,0 +1,6 @@
+.image-mousemove-effect {
+    transition: transform 0.1s ease-in; /* Adjust the duration and easing as needed */
+  }
+.image-mousemove-effect:hover {
+    transition: transform 0.1s ease-in-out; /* Adjust the duration and easing as needed */
+  }
