@@ -19,7 +19,7 @@ export function Service({ id, title, img, description, price }) {
     });
   }, []);
   return (
-    <Card data-aos="flip-right" className="lg:w-96 shadow-lg flex flex-col justify-between">
+    <Card data-aos="flip-right" className="xl:w-96 mx-4  shadow-lg flex flex-col justify-between">
       <CardHeader floated={false} color="blue-gray">
         <img src={img} alt="ui/ux review check" />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />

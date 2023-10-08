@@ -9,6 +9,8 @@ import App from "./App";
 import ServiceDetails from "./Pages/ServiceDetails";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import AuthProvider from "./context/AuthProvider";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/service-details/:id",
-        element: <ServiceDetails/>,
+        element: <PrivateRoute><ServiceDetails/></PrivateRoute>,
         loader: () => fetch("/services.json")
       },
       {
@@ -38,7 +40,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
+      <AuthProvider>
       <RouterProvider router={router} />
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

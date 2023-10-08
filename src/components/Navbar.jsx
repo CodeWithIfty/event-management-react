@@ -24,36 +24,53 @@ import {
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { createElement, useEffect, useState } from "react";
+import { createElement, useContext, useEffect, useState } from "react";
+import { authContext } from "../context/AuthProvider";
+
 
 // profile menu component
-const profileMenuItems = [
-  {
-    label: "My Profile",
-    icon: UserCircleIcon,
-  },
-  {
-    label: "Edit Profile",
-    icon: Cog6ToothIcon,
-  },
-  {
-    label: "Inbox",
-    icon: InboxArrowDownIcon,
-  },
-  {
-    label: "Help",
-    icon: LifebuoyIcon,
-  },
-  {
-    label: "Sign Out",
-    icon: PowerIcon,
-  },
-];
+
+
+
+
 
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {SignOutUser} = useContext(authContext)
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  const handleLogout = () => {
+    SignOutUser()
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+
+
+  const profileMenuItems = [
+    {
+      label: "My Profile",
+      icon: UserCircleIcon,
+    },
+    {
+      label: "Edit Profile",
+      icon: Cog6ToothIcon,
+    },
+    {
+      label: "Inbox",
+      icon: InboxArrowDownIcon,
+    },
+    {
+      label: "Help",
+      icon: LifebuoyIcon,
+    },
+    {
+      label: "Sign Out",
+      icon: PowerIcon,
+      onClick: handleLogout, // Use the function after it's defined
+    }
+  ];
+  
 
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
@@ -80,12 +97,15 @@ function ProfileMenu() {
       </MenuHandler>
 
       <MenuList className="p-1">
-        {profileMenuItems.map(({ label, icon }, key) => {
+        {profileMenuItems.map(({ label, icon, onClick }, key) => {
           const isLastItem = key === profileMenuItems.length - 1;
           return (
             <MenuItem
               key={label}
-              onClick={closeMenu}
+              onClick={() =>{
+                closeMenu()
+                onClick();
+              }}
               className={`flex items-center gap-2 rounded ${
                 isLastItem
                   ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
@@ -138,7 +158,7 @@ const navListItems = [
 
 function NavList() {
   return (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row text-gray-700 lg:items-center lg:scale-110 ">
+    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row text-gray-700 lg:items-center xl:scale-110 ">
       {navListItems.map(({ label, icon, path }) => (
         <Link
           key={label}
@@ -160,6 +180,8 @@ function NavList() {
 
 export function ComplexNavbar() {
   const [isNavOpen, setIsNavOpen] =useState(false);
+  const {user, loading} = useContext(authContext)
+
 
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
 
@@ -170,16 +192,18 @@ export function ComplexNavbar() {
     );
   }, []);
 
+
+
   return (
     <Navbar className="mx-auto p-5 rounded-none shadow-none   lg:pl-6 ">
       <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
-        <Typography
+        <Link to={"/"}><Typography
           as="a"
           href="#"
-          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium text-xl"
+          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium text-xl text-black"
         >
-          Social Event Agency
-        </Typography>
+          Social Event <span className="text-primary text-3xl hover:text-black duration-500"> Agency</span>
+        </Typography></Link>
         <div className="absolute top-2/4 left-2/4 hidden -translate-x-2/4 -translate-y-2/4 lg:block">
           <NavList />
         </div>
@@ -192,8 +216,17 @@ export function ComplexNavbar() {
         >
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
-        {/* <ProfileMenu /> */}
-        <Link to={"/login"}><button className="btn btn-primary ">Login</button></Link>
+
+        {loading ? (
+        <span className="loading loading-ring loading-md"></span>
+      ) : user ? (
+        <ProfileMenu />
+      ) : (
+        <Link to="/login">
+          <button className="btn btn-primary">Login</button>
+        </Link>
+      )}
+
 
       </div>
       <Collapse open={isNavOpen} className="overflow-scroll">
