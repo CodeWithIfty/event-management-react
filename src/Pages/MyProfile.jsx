@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 import { GoVerified, GoUnverified } from 'react-icons/go';
 
 const MyProfile = () => {
-  const { user, loading } = useContext(authContext);
-
+  const { user, loading ,SignOutUser } = useContext(authContext);
+  const handleLogout = () => {
+    SignOutUser()
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
-    <div className="p-16">
+    <div className="p-4">
       <div className="p-8 bg-white shadow mt-24">
         {" "}
         <div className="grid grid-cols-1 md:grid-cols-3">
@@ -50,9 +54,9 @@ const MyProfile = () => {
                 Edit Profile
               </button>
             </Link>
-            <button className="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+            <button onClick={handleLogout} className="text-white py-2 px-4 uppercase rounded bg-error hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
               {" "}
-              Message
+              Log Out
             </button>{" "}
           </div>{" "}
         </div>{" "}
@@ -74,17 +78,14 @@ const MyProfile = () => {
             <p className=" text-gray-600 mt-3">{user.email}</p>
           )}
           <p className="mt-8 text-gray-500">
-            Solution Manager - Creative Tim Officer
+            Front-End Developer
           </p>{" "}
-          <p className="mt-2 text-gray-500">University of Computer Science</p>{" "}
+          <p className="mt-2 text-gray-500">Programming Hero Community</p>{" "}
         </div>{" "}
         <div className="mt-12 flex flex-col justify-center">
           {" "}
-          <p className="text-gray-600 text-center font-light lg:px-16">
-            An artist of considerable range, Ryan — the name taken by
-            Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and
-            records all of his own music, giving it a warm, intimate feel with a
-            solid groove structure. An artist of considerable range.
+          <p className="text-gray-600 text-center text-base  lg:px-16">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perferendis consectetur obcaecati soluta deleniti iusto dignissimos ipsam eveniet ex aspernatur dolorem asperiores unde modi similique, placeat fugit? Delectus, quis repellendus.
           </p>{" "}
           <button className="text-indigo-500 py-2 px-4  font-medium mt-4">
             {" "}
