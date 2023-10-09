@@ -14,10 +14,7 @@ import {
   UserCircleIcon,
   ChevronDownIcon,
   Cog6ToothIcon,
-  InboxArrowDownIcon,
-  LifebuoyIcon,
   PowerIcon,
-  Bars2Icon,
   HomeIcon,
   ExclamationCircleIcon,
   Bars3Icon,
@@ -35,9 +32,7 @@ function ProfileMenu() {
   const closeMenu = () => setIsMenuOpen(false);
 
   const handleLogout = () => {
-    SignOutUser()
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    SignOutUser();
   };
   const profileNavigate = () => {
     return navigate("/my-profile");
@@ -64,7 +59,6 @@ function ProfileMenu() {
     },
   ];
 
-  
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
@@ -147,12 +141,12 @@ const navListItems = [
     path: "/services",
   },
   {
-    label: "About Us",
+    label: "About",
     icon: ExclamationCircleIcon,
     path: "/about",
   },
   {
-    label: "Contact Us",
+    label: "Contact",
     icon: ExclamationCircleIcon,
     path: "/contact",
   },
@@ -167,7 +161,7 @@ function NavList() {
   }, [location]);
 
   return (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row   lg:items-center xl:scale-110 ">
+    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row    lg:items-center xl:scale-110 ">
       {navListItems.map(({ label, icon, path }) => (
         <Link
           key={label}
@@ -211,11 +205,10 @@ export function ComplexNavbar() {
         <Link to={"/"}>
           <Typography
             href="#"
-            className="mr-4 ml-2 cursor-pointer py-1.5 font-medium text-xl text-black"
+            className="mr-4 ml-2 cursor-pointer py-1.5 font-medium xl:text-xl text-xl lg:text-base text-black"
           >
-            Social Event{" "}
-            <span className="text-primary text-3xl hover:text-black duration-500">
-              {" "}
+            Social Event
+            <span className="text-primary xl:text-3xl lg:text-xl text-3xl  hover:text-black duration-500">
               Agency
             </span>
           </Typography>

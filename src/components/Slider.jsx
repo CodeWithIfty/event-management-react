@@ -10,7 +10,6 @@ export function CarouselWithContent() {
   useEffect(() => {
     AOS.init({
       duration: 800,
-      
     });
     AOS.refresh();
   }, []);
@@ -52,7 +51,7 @@ export function CarouselWithContent() {
           >
             <div className=" flex justify-center ">
               <img
-              data-aos="fade-up"
+                data-aos="fade-up"
                 src={conf}
                 alt=""
                 className="absolute  z-10 image-mousemove-effect hidden lg:block "

@@ -34,7 +34,7 @@ const ServiceDetails = () => {
           Weddings come in various styles and sizes, ranging from intimate
           ceremonies in backyard gardens to lavish affairs in grand ballrooms or
           picturesque destination settings. Each wedding is a reflection of the
-          couple's unique love story and personal preferences, making it a truly
+          couples unique love story and personal preferences, making it a truly
           one-of-a-kind event.
         </p>
         <p>
