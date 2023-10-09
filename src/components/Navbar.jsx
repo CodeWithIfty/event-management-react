@@ -57,14 +57,6 @@ function ProfileMenu() {
       onClick: editProfileNavigate,
     },
     {
-      label: "Inbox",
-      icon: InboxArrowDownIcon,
-    },
-    {
-      label: "Help",
-      icon: LifebuoyIcon,
-    },
-    {
       label: "Sign Out",
       icon: PowerIcon,
       onClick: handleLogout, // Use the function after it's defined
@@ -91,6 +83,7 @@ function ProfileMenu() {
                 : "https://i.ibb.co/rHzPb0S/icon-256x256.png"
             }`}
           />
+          <p>{user.displayName}</p>
           <ChevronDownIcon
             strokeWidth={2.5}
             className={`h-3 w-3 transition-transform ${
