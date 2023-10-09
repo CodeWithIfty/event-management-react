@@ -13,7 +13,7 @@ const ServiceDetails = () => {
   };
   return (
     <div className="container mx-auto">
-      <div style={divStyle} className=" h-96  my-10 shadow-lg rounded-lg ">
+      <div style={divStyle} className=" h-96  my-10 shadow-lg rounded-lg mx-2">
         <div className="w-full bg-black h-full bg-opacity-50  hover:bg-opacity-30 duration-500 flex items-center justify-center rounded-lg flex-col">
           <h1 className="text-4xl w-1/2 mb-3 text-center font-bold text-white">
             {title}
@@ -21,12 +21,12 @@ const ServiceDetails = () => {
           <button className="btn btn-primary ">Reserve</button>
         </div>
       </div>
-      <div className=" mb-20">
+      <div className=" mb-20 mx-4">
         <div className=" flex justify-between  mb-5">
           <h1 className="text-2xl font-bold">{title}</h1>
           <h1 className="text-2xl font-bold">${price}</h1>
         </div>
-        <p className="mb-6 text-justify">
+        <p className="mb-6 text-justify ">
           {description}A wedding event is a momentous and deeply meaningful
           celebration of love, commitment, and the coming together of two
           individuals in matrimony. It is a joyous occasion where families and

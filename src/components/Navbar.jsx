@@ -20,6 +20,7 @@ import {
   Bars2Icon,
   HomeIcon,
   ExclamationCircleIcon,
+  Bars3Icon,
 } from "@heroicons/react/24/outline";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createElement, useContext, useEffect, useState } from "react";
@@ -227,9 +228,9 @@ export function ComplexNavbar() {
           color="blue-gray"
           variant="text"
           onClick={toggleIsNavOpen}
-          className="ml-auto mr-2 lg:hidden"
+          className="ml-auto mr-10 lg:hidden"
         >
-          <Bars2Icon className="h-6 w-6" />
+          <Bars3Icon className="h-10 w-10  " />
         </IconButton>
 
         {loading ? (
